@@ -40,5 +40,5 @@ for i in range(len(tags_lst)):  # Проходим по всем группам 
             tag_nums[n] = text  # Добавляем в список url и заколовок
             head_lst[i][tags_lst[i][0]] = tag_nums  # Добавляем словарь в список результатов
 
-with open('parsers.json', 'w', encoding='utf-8') as file:  # Сохраняем результат в JSON файл
+with open('NIIparser.json', 'w', encoding='utf-8') as file:  # Сохраняем результат в JSON файл
     json.dump(head_lst, file, ensure_ascii=False,  indent=4)  # С адекватной поддержкой киррилицы и с отступами
