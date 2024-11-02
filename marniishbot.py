@@ -14,7 +14,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['help'])  # Обработчик команды /help
 def get_help(message):
 	with open(readme_url, 'r', encoding='utf-8') as readme:  # Открываем файл README
-		content = readme.read()  # Читаем содержимое файла
+		content = readme.read().replace('</br>', '')  # Читаем содержимое файла с удалением всех </br>
 		bot.reply_to(message, content)  # Отправляем содержимое пользователю
 
 @bot.message_handler(commands=['menu'])  # Обработчик команды /menu
