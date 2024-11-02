@@ -37,7 +37,7 @@ for i in range(len(tags_lst)):  # Проходим по всем группам 
             head_lst[i][tags_lst[i][0]] = tag_nums  # Добавляем словарь в список результатов
         else:
             text = tag_2[n].text  # Сохраняем текст пункта
-            tag_nums[n] = text  # Добавляем в список url и заколовок
+            tag_nums[n] = text  # Добавляем в список url и заголовок
             head_lst[i][tags_lst[i][0]] = tag_nums  # Добавляем словарь в список результатов
 
 with open('NIIparser.json', 'w', encoding='utf-8') as file:  # Сохраняем результат в JSON файл
