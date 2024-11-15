@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <menu>
+        <ul>
+            {% for href, name in menu.items() %}
+                <li><a href={{href}}>{{name}}</a></li>
+            {% endfor %}
+        </ul>
+    </menu>
+    <hr>
+    <h1>Cервис для парсинга сайта <a href="https://марниисх.рф/">марниисх.рф</a></h1>
+    <a href="/form/">Начать</a>
+</body>
+</html>
