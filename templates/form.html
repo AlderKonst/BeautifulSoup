@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск по форме</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <menu>
+        <ul>
+            {% for href, name in menu.items() %}
+                <li><a href={{href}}>{{name}}</a></li>
+            {% endfor %}
+        </ul>
+    </menu>
+    <hr>
+    <h1>Поиск по сайту <a href="https://марниисх.рф/">марниисх.рф</a></h1>
+    <p>Поиск осуществляется по ранее проведённым результатам парсинга</p>
+    <form method="post">
+        <label>Выбор необходимой информации:</label>
+        <select name="finding">
+            <option value="menu">Карта сайта</option>
+            <option value="trends">Направления деятельности НИИ</option>
+            <option value="links">Полезные ссылки</option>
+            <option value="news">Новости текущего года</option>
+        </select>
+        <button type="submit">Искать</button>
+    </form>
+</body>
+</html>
