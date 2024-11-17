@@ -3,9 +3,9 @@ from pprint import pprint  # Импортируем pprint для удобног
 import json  # Импортируем json для работы с JSON-данными (почему-то серым отображает)
 import sqlite3 # Импортирует sqlite3 для работы с базами данных
 
-token = ('vk1.a.yxxhoAU0X_NN86KDgr58ONhwvxX0TY4KPBM2Ut07EUKbsRlrW_db4PjxJNK2PcEMe0V2'
-         'QvXgXLk0SD36rBFcBzvg0R-FQhxCnv-xn_wC93frumLrJy8_LEoZngLo0G_Bo4L_yr22z7rfQM'
-         'mXm9f3X7_bvG914Ho25oHv-R3jkrq2vVHTM02I9ohTVK4lU1QbldY0LdFkgJ1MiZfY9Gnqww')  # Токен доступа к API ВКонтакте
+with open('F:/UII/Token_vk.txt','r') as t:
+    token = t.read()
+token = (token)  # Токен доступа к API ВКонтакте
 method = 'users.search'  # Метод API для поиска пользователей
 url = f'https://api.vk.com/method/{method}'  # Формируем URL для запроса к API
 params = {  # Параметры запроса к API
