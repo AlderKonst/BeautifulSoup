@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <menu>
+        <ul>
+            {% for href, name in menu.items() %}
+                <li><a href={{href}}>{{name}}</a></li>
+            {% endfor %}
+        </ul>
+    </menu>
+    <hr>
+    <h1>Результаты поиска по сайту <a href="https://марниисх.рф/">марниисх.рф</a></h1>
+    <p>
+        {% for i in result %}
+            {% if loop.index0 == 0 %}
+                <h3>{{i}}</h3>
+            {% elif i == '' %}
+                <br>
+            {% else %}
+                <div>{{i}}</div>
+            {% endif %}
+        {% endfor %}
+    </p>
+</body>
+</html>
