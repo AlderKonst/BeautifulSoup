@@ -1,6 +1,6 @@
 import requests  # Импортируем библиотеку requests для работы с HTTP-запросами
 from pprint import pprint  # Импортируем pprint для удобного форматирования вывода
-import json  # Импортируем json для работы с JSON-данными
+import json  # Импортируем json для работы с JSON-данными (почему-то серым отображает)
 import sqlite3 # Импортирует sqlite3 для работы с базами данных
 
 token = ('vk1.a.yxxhoAU0X_NN86KDgr58ONhwvxX0TY4KPBM2Ut07EUKbsRlrW_db4PjxJNK2PcEMe0V2'
@@ -32,3 +32,10 @@ for n, user in enumerate(result['response']['items']):
                    # Делаем SQL-запрос на внесение записи
                    (user['id'], n+1, user['university']))  # Вносимые значения (VK ID, id имени и универа)
     sql.commit() # Вносим собранные изменения в базу данных
+
+query = ('select s.id, f.name, u.name '
+         'from svecha_yoshka s, first_name f, university_name u '
+         'where s.first_name_id = f.id and s.university_id = u.id')  # Текст SQL-запроса на отображение таблоданных
+
+cursor.execute(query) # Проводим сам запрос и получаем данные
+pprint(cursor.fetchall()) # Выводим список кортежей в более менее читаемом виде
