@@ -1,0 +1,19 @@
+* {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    font-size: 28px;
+}
+li {
+    display: inline-block;
+    margin-right: 10px;
+}
+a {
+    padding: 5px;
+}
+#vk {
+    border: 2px solid blue;
+}
+table, th, td {
+    border: 1px solid grey;
+}
