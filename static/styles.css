@@ -14,3 +14,6 @@ a {
 #vk {
     border: 2px solid blue;
 }
+table, th, td {
+    border: 1px solid grey;
+}

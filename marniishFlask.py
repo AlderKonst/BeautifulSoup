@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request  # Импортируем необходимые модули Flask
 import json  # Импортируем библиотеку для работы с JSON-файлами
 import requests  # Импортируем библиотеку для выполнения HTTP-запросов
+import vk_orm # Импортируем созданную БД по поиску Свечниковых в Йошке (vk.com)
 
 app = Flask(__name__)  # Создаем экземпляр приложения Flask
 
@@ -14,10 +15,15 @@ menu = {  # Определяем меню сайта
 def index():
     return render_template('index.html', menu=menu)  # Отправляем шаблон главной страницы с меню
 
-@app.route('/contacts/')  # Декоратор для страницы контактов
-def contacts():
+@app.route('/contacts/', methods=['GET'])  # Декоратор для страницы контактов
+def contacts_get():
     return render_template('contacts.html', menu=menu)  # Отправляем шаблон страницы контактов с меню
 
+@app.route('/contacts/', methods=['POST'])  # Декоратор для обработки формы поиска (POST)
+def contacts_post():
+    text = request.form['find']  # Получаем текст из формы
+    result = vk_orm.results # Сохраняем полученные данные с БД
+    return render_template('vk_results.html', menu=menu, result=result)  # Отправляем результаты в шаблон
 @app.route('/form/', methods=['GET'])  # Декоратор для формы поиска (GET)
 def form_get():
     return render_template('form.html', menu=menu)  # Отправляем шаблон формы поиска с меню
